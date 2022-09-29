@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <script>
+        //-------------------要求1-------------------
+        function calculate(min,max,step){
+            let sum=0;
+            for(n=min;n<=max;n+=step){
+                sum+=n;
+            }
+            return sum;
+        }
+        console.log("-----  要求1  -----");
+        console.log(calculate(1,3,1));
+        console.log(calculate(4,8,2));
+        console.log(calculate(-1,2,2));
+        
+    
+        //-------------------要求2-------------------
+        function avg(data){
+            let sum=0;
+            let n=0;
+            for(let i=0;i<data.employees.length;i++){
+                if(data.employees[i].manager==false){
+                    sum+=data.employees[i].salary;
+                    n++;
+                }
+            }
+            return sum/n;
+        }
+        console.log("-----  要求2  -----");
+        console.log(avg({
+            "employees":[
+                {
+                    "name":"John",
+                    "salary":30000,
+                    "manager":false
+                },
+                {
+                    "name":"Bob",
+                    "salary":60000,
+                    "manager":true
+                },
+                {
+                    "name":"Jenny",
+                    "salary":50000,
+                    "manager":false
+                },
+                {
+                    "name":"Tony",
+                    "salary":40000,
+                    "manager":false
+                }
+            ]
+        })); 
+    
+
+        //-------------------要求3-------------------
+        function func(a){
+            return function(b,c){
+            console.log(a+b*c);
+            }
+        }
+        console.log("-----  要求3  -----");
+        func(2)(3, 4);
+        func(5)(1, -5);
+        func(-3)(2, 9);
+
+        //-------------------要求4-------------------
+        function maxProduct(nums){
+            let max=nums[0]*nums[1];
+            for(let i=0;i<nums.length;i++){
+                for(let j=i+1;j<nums.length;j++){
+                    if (nums[i]*nums[j]>max){
+                        max=nums[i]*nums[j];
+                    }
+                }
+            }
+            return max;
+        }
+        console.log("-----  要求4  -----");
+        console.log(maxProduct([5, 20, 2, 6]));
+        console.log(maxProduct([10, -20, 0, 3]));
+        console.log(maxProduct([10, -20, 0, -3]));
+        console.log(maxProduct([-1, 2]));
+        console.log(maxProduct([-1, 0, 2]));
+        console.log(maxProduct([5, -1, -2, 0]));
+        console.log(maxProduct([-5, -2]));
+        
+
+        //-------------------要求5-------------------
+        function twoSum(nums, target){
+            for(let i=0;i<nums.length;i++){
+                for(let j=i+1;j<nums.length;j++){
+                    if(nums[i]+nums[j]==target){
+                        return [i,j];
+                    }
+                }
+            }
+        }
+        console.log("-----  要求5  -----");
+        let result=twoSum([2, 11, 7, 15], 9);
+        console.log(result);
+    </script>
+</body>
+</html>
